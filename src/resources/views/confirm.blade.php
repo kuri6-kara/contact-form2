@@ -30,25 +30,28 @@
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">お名前</th>
                             <td class="confirm-table__text">
-                                <input type="text" name="name" value="サンプルテキスト" />
+                                <input type="text" name="name" value="{{ $contact['name'] }}" readonly />
                             </td>
                         </tr>
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">メールアドレス</th>
                             <td class="confirm-table__text">
-                                <input type="email" name="email" value="サンプルテキスト" />
+                                <input type="email" name="email" value="{{ $contact['email'] }}" readonly />
                             </td>
                         </tr>
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">電話番号</th>
                             <td class="confirm-table__text">
-                                <input type="tel" name="tel" value="サンプルテキスト" />
+                                <input type="tel" name="tel" value="{{ $contact['tel'] }}" readonly />
                             </td>
                         </tr>
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">お問い合わせ内容</th>
                             <td class="confirm-table__text">
-                                <input type="text" name="content" value="サンプルテキスト" />
+                                <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                                <!-- 「サンプルテキスト」という文字は、inputタグ の value 属性を利用することで、初期状態で表示されるようになっている→ ここに\$contact[キー名]を記述し、各入力欄に入力情報が表示されるようになる -->
+                                <!-- $contact を展開するためには、マスタッシュ構文 {{}} で変数を囲う -->
+                                <!-- 入力内容確認ページでは、inputタグ の内容を編集できないようにする必要がある→inputタグ に readonly属性を記述する -->
                             </td>
                         </tr>
                     </table>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+// useでコントローラーを読み込む
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ContactController::class, 'index']);
+// /にgetメソッドでアクセス→ContactControllerのindexアクションを呼び出す
+
+Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
+// 送信ボタン押す→confirmアクション実行
