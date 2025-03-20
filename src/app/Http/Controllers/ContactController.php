@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
+// 保存処理ではContactモデルを利用
 
 class ContactController extends Controller
 {
@@ -24,6 +26,14 @@ class ContactController extends Controller
         // 作成した confirm アクションでは、 confirm.blade.php を呼ぶ際に、キーを contact として入力情報を渡している＝confirm.blade.php では、「 $contact」に入力内容が格納されていることになる
         // return view('confirm', compact('contact'));
         // 上記の記述をcompact 関数を使うと、以上のようにシンプルに記述できる
+    }
 
+    public function store(Request $request)
+    {
+        $contact = $request->only(['name', 'email', 'tel', 'content']);
+        Contact::create($contact);
+        // createで$contactの変数に格納されたデータを作成できる
+        return view('thanks');
+        // thanks.blade.php を呼び出す
     }
 }

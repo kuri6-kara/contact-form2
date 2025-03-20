@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
@@ -24,7 +24,11 @@
             <div class="confirm__heading">
                 <h2>お問い合わせ内容確認</h2>
             </div>
-            <form class="form">
+            <form class="form" action="/contacts" method="post">
+                @csrf
+                <!-- 値をコントローラに送る/formタグの method属性とaction属性を設定し、storeアクションを呼び出すルーティングと結びつける -->
+                <!-- action="/contacts"=入力内容の送信先を指定
+                    method="post"=HTTPメソッドの指定(POST メソッドで/contactsにアクセスできるよう設定しています。) -->
                 <div class="confirm-table">
                     <table class="confirm-table__inner">
                         <tr class="confirm-table__row">
